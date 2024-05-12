@@ -1,0 +1,73 @@
+$main-color: #252525;
+$details-color: lighten($main-color, 20%);
+$second-color: #9cdcdd;
+$default-text-color: #fff;
+@mixin flex($jc, $w : nowrap, $align : center) {
+    display: flex;
+    justify-content: $jc;
+    flex-wrap: $w;
+    align-items: $align;
+}
+@mixin grid($n-columns) {
+    display: grid;
+    grid-template-columns: repeat($n-columns, 1fr);
+}
+@mixin link-style($size) {
+    text-decoration: none;
+    color: $default-text-color;
+    font-size: $size;
+}
+@mixin center($width) {
+    width: $width;
+    margin: 0px auto;
+}
+@mixin border-style($b-radius, $b-width, $b-color) {
+    border-radius: $b-radius;
+    border: $b-width solid $b-color;
+}
+%move-down {
+    margin-top: 60px;
+}
+%showup-effect {
+    content: "";
+    display: block;
+    width: auto;
+    height: 100%;
+    position: absolute;
+    background-color: $main-color;
+    z-index: 1;
+    animation: showup 2s ease-in;
+    right: 0px;
+}
+@keyframes h-anim {
+    0% {
+        transform: translate(-200px, 0px);
+    }
+    100% {
+        transform: translate(20px, 0px);
+    }
+}
+@keyframes h-tag-reset {
+    0% {
+        width: 254px;
+    }
+    100% { 
+        width: auto;
+    }
+}
+@keyframes showup {
+    0% {
+        width: 100%;
+    }
+    25% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+@keyframes blink {
+    50% {
+        color: $default-text-color;
+    }
+}
